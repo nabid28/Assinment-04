@@ -10,6 +10,7 @@ const rejectedContainer = document.getElementById("rejected-container")
 const emptyState = document.getElementById("empty-state");
 
 function switchTab(tab) {
+    currentTab =tab;
     
     const selectedTab = tab.toLowerCase(); 
   
@@ -67,12 +68,17 @@ emptyState.classList.add("hidden");
             emptyState.parentElement.classList.remove("hidden")
     }
    }
+
+updateStat()
 }
+
 
 //stat update
 const totalStat = document.getElementById("stat-total");
 const interviewStat = document.getElementById("stat-interview");
 const rejectedStat = document.getElementById("stat-rejected");
+
+const avilavleStae = document.getElementById("available")
 
 
 
@@ -113,8 +119,25 @@ document.getElementById("jobs-container").addEventListener("click", function(eve
 
 
 function updateStat(){
-    totalStat.innerText = allContainer.children.length
-        interviewStat.innerText = interviewContainer.children.length
-            rejectedStat.innerText = rejectedContainer.children.length
+   const count = {
+    all: allContainer.children.length,
+    interview : interviewContainer.children.length,
+    rejected: rejectedContainer.children.length,
+   };
+   totalStat.innerText = count.all;
+   interviewStat.innerText = count.interview;
+   rejectedStat.innerText = count.rejected
+
+   avilavleStae.innerText = count[currentTab]
+
+   if (count[currentTab] < 1){
+    emptyState.classList.remove("hidden")
+   }
+   else{
+    emptyState.classList.add("hidden")
+   }
+
 
 }
+
+updateStat()

@@ -1,7 +1,7 @@
 1. getElementById, getElementsByClassName, and querySelector / querySelectorAll
 getElementById returns a single element by its unique ID and is the fastest method. getElementsByClassName returns a live collection of all elements with that class, automatically updating if the DOM changes. querySelector and querySelectorAll are the most flexible, allowing you to use CSS selectors to find either the first match or a static list of all matches.
 
-2. 
+2. insert a new element into the DOM
 Create a new element using document.createElement('tagName') and set its content or attributes. Then, use parentNode.appendChild(newElement) or parentNode.prepend(newElement) to insert it into the webpage.
 
 
